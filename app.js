@@ -6,7 +6,7 @@ const app = {
             title2: 'Список заметок',
             plaseholderString: 'Введите название заметки',
             inputValue: '',
-            notes: ['1', '2', '3']
+            notes: ['колоблок', 'лол', 'топка']
         }
 
     },
@@ -15,8 +15,13 @@ const app = {
             this.inputValue = event.target.value
         },
         addNewNote() {
-            this.notes.push(this.inputValue)
-            this.inputValue = ''
+            if (this.inputValue !== '') {
+                this.notes.push(this.inputValue)
+                this.inputValue = ''
+            }
+        },
+        toUpperCase(item) {
+            return item.toUpperCase()
         },
         removeNote(idx) {
             this.notes.splice(idx,1)
