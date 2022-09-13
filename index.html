@@ -12,12 +12,16 @@
     <h3>#2</h3>
 
     <div class="card">
-        <h1>{{title2}}</h1>
+        <h1 :style="{color: inputValue.length < 5 ? 'red' : 'green',
+                     fontSize: inputValue.length < 5 ? '1.8rem' : '2rem'}
+                    ">{{title2}}</h1>
         <div class="form-control">
-            <input type="text"
-                   :placeholder="plaseholderString"
-                   v-model="inputValue"
-                   @keypress.enter="addNewNote"/>
+            <label>
+                <input type="text"
+                       :placeholder="plaseholderString"
+                       v-model="inputValue"
+                       @keypress.enter="addNewNote"/>
+            </label>
         </div>
         <button class="btn" @click="addNewNote">Добавить</button>
         <hr />
@@ -33,7 +37,6 @@
         <hr />
         <strong>Общее количество элементов: {{ notes.length }}</strong>
     </div>
-
 
     <h3>#1</h3>
     <div class="card center">
